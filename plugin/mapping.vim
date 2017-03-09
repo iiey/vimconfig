@@ -101,7 +101,7 @@ cnoremap vh vert botright help<space>
 cnoremap vf vert sf<space>
 
 "FN:
-nnoremap <silent>   <F2> :ToggleNerdTreeFind<cr>
+nnoremap <silent>   <F2> :ToggleTree<cr>
 nnoremap            <F3> :TagbarToggle<cr>
 nnoremap <silent>   <F4> :UpdateCtags<cr>
 nnoremap            <F5> :UndotreeToggle<cr>
