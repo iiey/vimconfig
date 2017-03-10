@@ -20,7 +20,7 @@ endif
 " COMMANDS DEFINITION {{{
 command! OnQuit         call utilfunc#onquit()
 command! UpdateCtags    call utilfunc#updatectags($proj)
-command! ToggleCode     call utilfunc#toggleCode()
+command! ToggleCode     call utilfunc#togglecode()
 command! ToggleColor    call utilfunc#togglecolor()
 command! ToggleLine     call utilfunc#toggleline()
 command! ToggleTree     call utilfunc#toggletree()
