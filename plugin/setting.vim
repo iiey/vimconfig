@@ -55,14 +55,6 @@ set autoindent              "same indent in newline
 set backspace=2             "solve some hw vs system conflict, make it work like other apps. See also :help backspace
 "set smartindent             "increase indent in newblock
 
-"DIFFING
-if &diff && g:colors_name != 'solarized'
-    highlight DiffAdd    cterm=bold ctermfg=white ctermbg=DarkGreen
-    highlight DiffDelete cterm=bold ctermfg=white ctermbg=DarkGrey
-    highlight DiffChange cterm=bold ctermfg=white ctermbg=DarkBlue
-    highlight DiffText   cterm=bold ctermfg=white ctermbg=DarkRed
-endif
-
 "SESSION
 "prevent annoying if vimrc changed after session saved
 set ssop-=options    " do not store global and local values in a session
@@ -91,6 +83,7 @@ endif
 
 
 " COLORSCHEME {{{
+"Open vim with theme instead default
 set background=dark
 if $KONSOLE_PROFILE_NAME ==? "solarized"
     "loading time: 5ms
@@ -101,6 +94,15 @@ else
     silent! colorscheme codedark
     let g:quantum_black=1
     let g:airline_theme='codedark'
+endif
+
+"DIFFING
+"note: a colorscheme must set first before request 'g:colors_name'
+if &diff && exists('g:colors_name') && g:colors_name != 'solarized'
+    highlight DiffAdd    cterm=bold ctermfg=white ctermbg=DarkGreen
+    highlight DiffDelete cterm=bold ctermfg=white ctermbg=DarkGrey
+    highlight DiffChange cterm=bold ctermfg=white ctermbg=DarkBlue
+    highlight DiffText   cterm=bold ctermfg=white ctermbg=DarkRed
 endif
 "}}}
 
