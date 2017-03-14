@@ -1,7 +1,4 @@
 "BASIC SETTING {{{
-"Folding option for this file
-setlocal foldmethod=marker  "use marker curved bracket for folding
-setlocal foldlevel=2        "over level 1 will be closed
 
 "LANGUAGE INTERFACE
 "set language for output :messages
@@ -24,6 +21,11 @@ set t_Co=256                "enable term color 256
 set laststatus=2            "always show status line
 set encoding=utf-8
 
+
+if !&autoread               "default turn on autoread
+    set autoread            "notify changes outside vim and update file
+endif                       "note: 'checktime' needs to call for comparing timestamp of buffer
+
 if exists('&belloff')
   set belloff=all           "never ring the bell
 endif
@@ -32,12 +34,18 @@ if has('linebreak')         "show character when long line's wrapped to fit the 
     let &showbreak='↪ '     "downwards arrow with tip rightwards (U+21B3, UTF-8: E2 86 B3)
 endif
 
-if has('windows')
-  set splitbelow            "open horizontal splits below current window
+if has('folding')           "folding option
+set foldmethod=syntax       "global folding method
+set foldlevel=3             "fold with higher level with be closed (0: always)
+set foldnestmax=1           "close only outermost fold
 endif
 
 if has('vertsplit')
   set splitright            "open vertical splits to the right of the current window
+endif
+
+if has('windows')
+  set splitbelow            "open horizontal splits below current window
 endif
 
 "SYNTAX & FILETYPE
