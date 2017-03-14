@@ -115,21 +115,27 @@ let g:clang_library_path=expand("$HOME")."/lib/libclang.so"
 
 "also complete parameters of function
 let g:clang_snippets = 1
-"alternative default engine 'clang_complete'
-let g:clang_snippets_engine = 'ultisnips'
+"default engine cannot jump between parameters
+"use ultisnip if it's available
+if v:version >= 704
+    let g:clang_snippets_engine = 'ultisnips'
+endif
 "prevent default key from disable tagjump <c-]>
 let g:clang_jumpto_declaration_key = '<c-w>['
 "}}}
 
 
 "ULTISNIPS {{{
-"using snippets template from: https://github.com/honza/vim-snippets.git
-"note: it will search in runtimepath for dir with names on the list below
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-"<c-tab> reserved by iterm for switching tab
-let g:UltiSnipsListSnippets='<c-h>'
-"<c-k> interferes with completion i_ctrl-x
-let g:UltiSnipsJumpBackwardTrigger='<c-l>'
+"Do not declare if not use
+if v:version >= 704
+    "using snippets template from: https://github.com/honza/vim-snippets.git
+    "note: it will search in runtimepath for dir with names on the list below
+    let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+    "<c-tab> reserved by iterm for switching tab
+    let g:UltiSnipsListSnippets='<c-h>'
+    "<c-k> interferes with completion i_ctrl-x
+    let g:UltiSnipsJumpBackwardTrigger='<c-l>'
+endif
 " }}}
 
 

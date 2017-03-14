@@ -37,9 +37,11 @@ Plug 'bogado/file-line'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-fugitive'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"ultisnip requires vim 7.4
+Plug 'SirVer/ultisnips', v:version >= 704 ? {} : {'on' : []}
+Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
 Plug 'Rip-Rip/clang_complete'
+
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'easymotion/vim-easymotion', {'on': '<Plug>(easymotion-f)'}
 
