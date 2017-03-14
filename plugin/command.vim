@@ -50,10 +50,10 @@ augroup vimrc
     "one line statement without timer function
     "autocmd User AsyncRunStop if g:asyncrun_status=='success'|call asyncrun#quickfix_toggle(8, 0)|endif
 
-    "set specific folding for vim files
+    "FIXME set specific folding for vim files
     autocmd FileType vim setlocal foldmethod=marker
     "Do not fold small file
-    autocmd Syntax c,cpp,vim if line('$') < 500 | normal zR | endif
+    "autocmd FileType c,cpp,vim if line('$') < 500 | normal zR | endif
 
     "FIXME autoread for vim terminal
     "using this event to update file silently but not trigger too often
