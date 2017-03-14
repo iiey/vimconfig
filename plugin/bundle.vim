@@ -1,10 +1,5 @@
 "Configure setting for plugins
 
-"TODO autocommand folding for *.vim
-"Folding option for this file
-setlocal foldmethod=marker  "use marker curved bracket for folding
-setlocal foldlevel=2        "over level 1 will be closed
-
 "VIM-AIRLINE {{{
 let g:airline_powerline_fonts=1                     "enable powerline font
 

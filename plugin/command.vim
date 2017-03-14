@@ -50,7 +50,13 @@ augroup vimrc
     "one line statement without timer function
     "autocmd User AsyncRunStop if g:asyncrun_status=='success'|call asyncrun#quickfix_toggle(8, 0)|endif
 
-    "TODO dim color on unfocused splits
-    "TODO auto mark folding for *.vim
+    "set specific folding for vim files
+    autocmd FileType vim setlocal foldmethod=marker
+    "Do not fold small file
+    autocmd Syntax c,cpp,vim if line('$') < 500 | normal zR | endif
+
+    "FIXME autoread for vim terminal
+    "using this event to update file silently but not trigger too often
+    "autocmd CursorHold * checktime
 augroup END
 "}}}
