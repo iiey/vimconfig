@@ -28,9 +28,7 @@ Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'bitc/vim-bad-whitespace'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
-
-"FIXME split window after install
-Plug 'bogado/file-line'
+Plug 'kopischke/vim-fetch'
 
 
 "EXTENDED
