@@ -25,6 +25,7 @@ command! ToggleColor    call utilfunc#togglecolor()
 command! ToggleLine     call utilfunc#toggleline()
 command! ToggleTree     call utilfunc#toggletree()
 command! -nargs=* -complete=color ChangeTheme call utilfunc#changetheme('<args>')
+command! -nargs=* Search call utilfunc#search('<args>')
 "}}}
 
 
