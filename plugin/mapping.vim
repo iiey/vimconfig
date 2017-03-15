@@ -76,6 +76,8 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <c-]> <c-]>zz
+"search on browser
+nnoremap <silent> gy :call utilfunc#googlit()<cr>
 "manual change cword forwards
 "repeat with: <c-[>(goto normal) n(ext match) .(repeat)
 nnoremap c* *<c-o>cgn
