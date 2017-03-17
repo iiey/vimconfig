@@ -21,6 +21,9 @@ set t_Co=256                "enable term color 256
 set laststatus=2            "always show status line
 set encoding=utf-8
 
+if v:version > 703
+  set formatoptions+=j      "delete comment character when joining commented lines
+endif
 
 if !&autoread               "default turn on autoread
     set autoread            "notify changes outside vim and update file
@@ -50,9 +53,11 @@ endif
 
 "SYNTAX & FILETYPE
 "loading time 20ms(vim74), 35ms(vim80)
-syntax on                               "enable syntax highlighting
-filetype on                             "enable filetype detecting
-filetype plugin indent on               "smartindent based filetype, set cindent for c/c++
+if has('syntax') && !exists('g:syntax_on')
+    syntax enable           "enable syntax highlighting
+endif
+"loading time 1ms
+filetype plugin indent on   "smartindent based filetype, set cindent for c/c++
 
 "CODING STYLE
 set tabstop=4
@@ -94,7 +99,7 @@ endif
 "Open vim with theme instead default
 set background=dark
 if $KONSOLE_PROFILE_NAME ==? "solarized"
-    "loading time: 5ms
+    "loading time: 6ms
     silent! colorscheme solarized
     let g:airline_theme='solarized'
 else
@@ -158,6 +163,7 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 
 
 "MAKE {{{
+"loading time 1ms
 "identify build-folder by searching "upwards" for "build" from "." to "~/sources"
 let projBuildDir = finddir('build', '.;$HOME/sources')
 if projBuildDir !=""
