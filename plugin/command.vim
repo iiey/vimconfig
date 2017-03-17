@@ -60,4 +60,10 @@ augroup vimrc
     "using this event to update file silently but not trigger too often
     "autocmd CursorHold * checktime
 augroup END
+
+augroup vimplug
+    "download new coming plugins
+    autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+                        \| PlugInstall --sync | q | endif
+augroup END
 "}}}
