@@ -38,7 +38,7 @@ Plug 'tpope/vim-fugitive'
 "ultisnip requires vim 7.4
 Plug 'SirVer/ultisnips', v:version >= 704 ? {} : {'on' : []}
 Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
-Plug 'Rip-Rip/clang_complete'
+Plug 'Rip-Rip/clang_complete', {'for': ['c', 'cpp']}
 
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'easymotion/vim-easymotion', {'on': '<Plug>(easymotion-f)'}
@@ -52,9 +52,7 @@ Plug 'scrooloose/nerdtree', {'on': []}
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'ryanoasis/vim-devicons'
 Plug 'wincent/terminus'
-
-"do not load if no colorscheme is set
-Plug 'blueyed/vim-diminactive', exists('g:colors_name') ? {} : {'on': []}
+Plug 'blueyed/vim-diminactive'
 
 "initalize plugin system
 call plug#end()
