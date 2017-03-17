@@ -106,7 +106,7 @@ endif
 "path to directory which contains libclang.{dll|so|dylib} (win/linux/macos)
 "let g:clang_library_path='/usr/lib/'
 "or direct path to current actual libclang
-let g:clang_library_path=expand("$HOME")."/lib/libclang.so"
+let g:clang_library_path=expand("$HOME")."/lib/"
 
 "also complete parameters of function
 let g:clang_snippets = 1
