@@ -29,6 +29,7 @@ Plug 'bitc/vim-bad-whitespace'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kopischke/vim-fetch'
+Plug 'tpope/vim-surround'
 
 
 "EXTENDED
