@@ -104,9 +104,10 @@ endif
 "<c-x><c-u> to trigger specific completefunc
 
 "path to directory which contains libclang.{dll|so|dylib} (win/linux/macos)
-"let g:clang_library_path='/usr/lib/'
-"or direct path to current actual libclang
-let g:clang_library_path=expand("$HOME")."/lib/"
+"no need to configure if using default path /usr/lib
+if has('mac') || has('osx')
+    let g:clang_library_path=expand("$HOME")."/lib/"
+endif
 
 "also complete parameters of function
 let g:clang_snippets = 1
