@@ -91,11 +91,11 @@ nnoremap ,s :ToggleCode<cr>
 noremap <C-S><left> :tabp<cr>
 noremap <C-S><right> :tabn<cr>
 "these interfere shift lines left and right
-noremap < :tabp<cr>
-noremap > :tabn<cr>
-"using (s-)tab and and repeat with dot command to shift instead
-vnoremap <tab> >
-vnoremap <s-tab> <
+noremap < gt
+noremap > gT
+"Indentation: using 't' as replacement
+vnoremap t >
+vnoremap T <
 
 "map vertical help
 cnoremap vh vert botright help<space>
