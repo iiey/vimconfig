@@ -16,19 +16,28 @@ endfunction
 
 "Change colorscheme and airlinetheme
 function! utilfunc#changetheme(color)
-    "Using 'execute' to evaluate value of argument not the argument
-    execute ':colorscheme' a:color
+    let l:color = a:color
+    let l:airline = a:color
 
-    if a:color == 'solarized'
-        set background=dark
-    endif
-
+    "specify configuration for some colors
     if a:color == 'codeschool'
-        execute ':AirlineTheme cobalt2'
-        return
+        let l:airline = 'cobalt2'
+    elseif a:color == 'solarized'
+        set background=dark
+    elseif a:color == 'tomorrow-night'
+        let l:airline = 'tomorrow'
+    elseif a:color == 'quantum'
+        let g:quantum_black = 1
+        if has('gui_running')
+            let g:quantum_italics = 0
+        endif
+    elseif a:color == 'wombat256mod'
+        let l:airline = 'wombat'
     endif
 
-    execute ':AirlineTheme' a:color
+    "Using 'execute' to evaluate value of argument not the argument
+    execute ':colorscheme' l:color
+    execute ':AirlineTheme' l:airline
 endfunction
 
 "Toggle line number: hydrid/absolute/none
