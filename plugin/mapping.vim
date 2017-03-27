@@ -90,12 +90,8 @@ nnoremap ,s :ToggleCode<cr>
 "or ngt for jumping to n.te tab
 noremap <C-S><left> :tabp<cr>
 noremap <C-S><right> :tabn<cr>
-"these interfere shift lines left and right
-noremap < gt
-noremap > gT
-"Indentation: using 't' as replacement
-vnoremap t >
-vnoremap T <
+noremap t gt
+noremap T gT
 
 "map vertical help
 cnoremap vh vert botright help<space>
