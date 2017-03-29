@@ -155,10 +155,11 @@ function! utilfunc#toggletree()
         if g:NERDTree.IsOpen()
             execute ':NERDTreeTabsClose'
         else
-            "TODO fix stupid nerdtab behaviour
-            NERDTreeTabsOpen
+            "workaround for stupid nerdtab
+            NERDTreeTabsOpen        "the focus's on tree if only command executes from first buffer
+            NERDTreeFocus           "these two commands make sure focus always on file
             NERDTreeFocusToggle
-            NERDTreeTabsFind
+            NERDTreeTabsFind        "because this command works if only focus's on file
         endif
         return
     endif
