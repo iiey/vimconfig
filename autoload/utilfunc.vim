@@ -22,8 +22,10 @@ function! utilfunc#changetheme(color)
     "specify configuration for some colors
     if a:color == 'codeschool'
         let l:airline = 'cobalt2'
+    elseif a:color == 'pencil'
+        set background = dark
     elseif a:color == 'solarized'
-        set background=dark
+        set background = dark
     elseif a:color == 'tomorrow-night'
         let l:airline = 'tomorrow'
     elseif a:color == 'quantum'

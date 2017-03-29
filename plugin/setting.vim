@@ -107,8 +107,8 @@ elseif $KONSOLE_PROFILE_NAME ==? "tomorrow"
     let g:airline_theme='tomorrow'
 else
     "loading time: 7ms
-    silent! colorscheme quantum
-    let g:airline_theme='quantum'
+    silent! colorscheme codedark
+    let g:airline_theme='codedark'
 endif
 
 "DIFFING
