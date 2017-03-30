@@ -10,12 +10,24 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 ":Ag runs :grep in background with asyncrun
 command! -bang -nargs=* -complete=file Ag AsyncRun -program=grep @ <args>
 
-"FIXME search pattern with double quotes not work
+"FIXME search pattern with double quotes not work, :h <args>
 if !exists(':Ag') && executable('ag')
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 "}}}
 
+"CPPMAN {{{
+"manual page viewer
+"note: using "$cppman -m true" to call cppman from default man
+"it's handy if vim-man is installed
+if executable('tmux') && executable('cppman')
+    command! -nargs=+ Cppman silent! call system("tmux split-window cppman " . expand(<q-args>))
+    command! -nargs=+ CppMan silent! call system("tmux split-window -h cppman " . expand(<q-args>))
+
+"    autocmd FileType cpp nnoremap <silent><buffer> <leader>k <Esc>:Cppman <cword><CR>
+"    autocmd FileType cpp nnoremap <silent><buffer> <leader>K <Esc>:CppMan <cword><CR>
+endif
+"}}}
 
 " COMMANDS DEFINITION {{{
 command! OnQuit         call utilfunc#onquit()
@@ -30,8 +42,15 @@ command! -nargs=* Search call utilfunc#search('<args>')
 
 
 " AUTOCMD {{{
-augroup vimrc
+augroup vimplug
     "prevent calling multiple times by sourcing
+    autocmd!
+    "download new coming plugins
+    autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+                        \| PlugInstall --sync | q | endif
+augroup END
+
+augroup vimrc
     autocmd!
     "update tags on saving
     "autocmd BufWritePost *.cpp,*.h,*.c silent! call UpdateCtags(projRootDir)
@@ -47,7 +66,7 @@ augroup vimrc
     "open when asyncrun starts
     autocmd User AsyncRunStart if exists(':AsyncRun') | call asyncrun#quickfix_toggle(8, 1)
     "and close on success
-    autocmd User AsyncRunStop if exists(':AsyncRun') | call utilfunc#onasyncexit()
+    autocmd User AsyncRunStop if exists(':AsyncRun') | call utilfunc#async_onexit()
     "one line statement without timer function
     "autocmd User AsyncRunStop if g:asyncrun_status=='success'|call asyncrun#quickfix_toggle(8, 0)|endif
 
@@ -59,11 +78,5 @@ augroup vimrc
     "FIXME autoread for vim terminal
     "using this event to update file silently but not trigger too often
     "autocmd CursorHold * checktime
-augroup END
-
-augroup vimplug
-    "download new coming plugins
-    autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-                        \| PlugInstall --sync | q | endif
 augroup END
 "}}}
