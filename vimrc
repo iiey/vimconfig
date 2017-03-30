@@ -1,4 +1,4 @@
-"Install vimplug {{{
+"Install vimplug {{{1
 "auto install plugin manager if not exists
 if empty(glob('~/.vim/autoload/plug.vim'))
     let s:link='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -14,7 +14,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "}}}
 
-"Load Plugins {{{
+"Load Plugins {{{1
 "specific directory to load
 call plug#begin('~/.vim/bundle')
 
@@ -22,44 +22,51 @@ call plug#begin('~/.vim/bundle')
 ""first load personal stuff: setting, command, mapping
 Plug 'iiey/vimconfig'
 
-
-"BASIC
-Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+"BASIC (essential) {{{2
 Plug 'bitc/vim-bad-whitespace'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kopischke/vim-fetch'
 Plug 'tpope/vim-surround'
+"}}}
 
-
-"EXTENDED
+"EXTENDED (productive) {{{2
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
+
+Plug 'vim-utils/vim-man'
+"no zeal support on mac os because of dash
+if ! has('mac') || ! has('osx')
+    Plug 'KabbAmine/zeavim.vim'
+endif
 
 "ultisnip requires vim 7.4
 Plug 'SirVer/ultisnips', v:version >= 704 ? {} : {'on' : []}
-Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
+    Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
 Plug 'Rip-Rip/clang_complete', {'for': ['c', 'cpp']}
 
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'easymotion/vim-easymotion', {'on': '<Plug>(easymotion-f)'}
+"}}}
 
-
-"ENHANCED
+"ENHANCED (optional) {{{2
+Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'iiey/vim-startify'
 Plug 'majutsushi/tagbar'
-Plug 'edkolev/tmuxline.vim'
 Plug 'scrooloose/nerdtree', {'on': []}
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'ryanoasis/vim-devicons'
 Plug 'wincent/terminus'
+Plug 'edkolev/tmuxline.vim'
 Plug 'blueyed/vim-diminactive'
+"}}}
 
 "initalize plugin system
 call plug#end()
 "}}}
 
-"Defer loading {{{
+"Defer loading {{{1
 "vimplug defers some plugins (lazzy loader)
 "do onetime loading based events
 augroup load_on_move

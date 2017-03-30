@@ -119,8 +119,4 @@ nnoremap J <NOP>
 nnoremap K <NOP>
 "Ex mode
 nnoremap Q <NOP>
-
-" cppman
-"command! -nargs=+ Cppman silent! call system("tmux split-window cppman " . expand(<q-args>))
-"autocmd FileType cpp nnoremap <silent><buffer> K <Esc>:Cppman <cword><CR>
 " }}}

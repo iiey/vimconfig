@@ -23,9 +23,9 @@ function! utilfunc#changetheme(color)
     if a:color == 'codeschool'
         let l:airline = 'cobalt2'
     elseif a:color == 'pencil'
-        set background = dark
+        set background=dark
     elseif a:color == 'solarized'
-        set background = dark
+        set background=dark
     elseif a:color == 'tomorrow-night'
         let l:airline = 'tomorrow'
     elseif a:color == 'quantum'
@@ -130,7 +130,7 @@ endfunction
 "PLUGIN FUNCTIONS {{{
 "asyncrun
 "helper function for closing quickfix after finishing job
-function! utilfunc#onasyncexit()
+function! utilfunc#async_onexit()
     "user can close quickfix manually if it displays grep results
     let l:grep_job = 0
     for cmd in ['^ag', '^ack', '^grep']
