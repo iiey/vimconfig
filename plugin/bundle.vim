@@ -79,11 +79,10 @@ if !empty(glob("~/.vim/bundle/*startify"))
     "add vimtip to footer
     let g:startify_enable_vimtip = 1
 
-    "FIXME loading time 25ms
     "custom footer
-"    let g:startify_custom_footer = map(split(system('vim --version | head -n1'), '\n'), '"   ". v:val') + [''] +
-"                                 \ map(split(strftime("%c"), '\n'), '"   ". v:val') +
-"                                 \ ['   Hey ' . $USER . '! This cow has a vimtip for you:']
+    let g:startify_custom_footer = [''] +
+                                 \ map(split(strftime("%c"), '\n'), '"   ". v:val') +
+                                 \ ['   Hey ' . $USER . '! This cow has a vimtip for you:']
 
     let g:startify_session_before_save = ['silent! NERDTreeTabsClose', 'silent! TagbarClose']
 
