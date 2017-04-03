@@ -22,7 +22,7 @@ set laststatus=2            "always show status line
 set encoding=utf-8
 
 if v:version > 703
-  set formatoptions+=j      "delete comment character when joining commented lines
+    set formatoptions+=j      "delete comment character when joining commented lines
 endif
 
 if !&autoread               "default turn on autoread
@@ -30,7 +30,11 @@ if !&autoread               "default turn on autoread
 endif                       "note: 'checktime' needs to call for comparing timestamp of buffer
 
 if exists('&belloff')
-  set belloff=all           "never ring the bell
+    set belloff=all           "never ring the bell
+endif
+
+if has('clipboard')
+    set clipboard=unnamed   "write system clipboard to unnamed register
 endif
 
 if has('linebreak')         "show character when long line's wrapped to fit the screen
@@ -38,17 +42,17 @@ if has('linebreak')         "show character when long line's wrapped to fit the 
 endif
 
 if has('folding')           "folding option
-set foldmethod=syntax       "global folding method
-set foldlevel=3             "fold with higher level with be closed (0: always)
-set foldnestmax=1           "close only outermost fold
+    set foldmethod=syntax       "global folding method
+    set foldlevel=3             "fold with higher level with be closed (0: always)
+    set foldnestmax=1           "close only outermost fold
 endif
 
 if has('vertsplit')
-  set splitright            "open vertical splits to the right of the current window
+    set splitright            "open vertical splits to the right of the current window
 endif
 
 if has('windows')
-  set splitbelow            "open horizontal splits below current window
+    set splitbelow            "open horizontal splits below current window
 endif
 
 "SYNTAX & FILETYPE
