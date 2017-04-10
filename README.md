@@ -4,8 +4,8 @@ stuff from my vimrc breaks into pieces for keeping organised things more organis
 ### Install
 On Unix backup the existing ~/.vimrc and replace it by executing:
 ```sh
-git clone https://github.com/iiey/vimconfig ~/.vim/bundle/vimconfig
-\ && ln -sfn ~/.vim/bundle/vimconfig/vimrc ~/.vimrc
+git clone https://github.com/iiey/vimconfig ~/.vim/bundle/vimconfig \
+&& ln -sfn ~/.vim/bundle/vimconfig/vimrc ~/.vimrc
 ```
 #### Structure
   - Basic setting: ``vimconfig/plugin/setting.vim``
