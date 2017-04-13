@@ -105,6 +105,8 @@ endif
 "path to directory which contains libclang.{dll|so|dylib} (win/linux/macos)
 "no need to configure if using default path /usr/lib
 let g:clang_library_path=expand("$HOME")."/lib/"
+"do not auto trigger completion (use c-x c-u)
+let g:clang_complete_auto=0
 
 "also complete parameters of function
 let g:clang_snippets = 1
