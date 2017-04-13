@@ -114,7 +114,7 @@ imap                <F10> <c-o><F10>                        "if in Insert-Mode s
 "backtick as tmux keybind, disable in vim
 nnoremap ` <NOP>
 "join line
-nnoremap J <NOP>
+"nnoremap J <NOP>
 "show manual
 nnoremap K <NOP>
 "Ex mode
