@@ -45,6 +45,7 @@ endif
 Plug 'SirVer/ultisnips', v:version >= 704 ? {} : {'on' : []}
     Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
 Plug 'Rip-Rip/clang_complete', {'for': ['c', 'cpp']}
+Plug 'davidhalter/jedi-vim'
 
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'easymotion/vim-easymotion', {'on': '<Plug>(easymotion-f)'}
