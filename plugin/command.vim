@@ -72,6 +72,7 @@ augroup vimrc
 
     "FIXME set specific folding for vim files
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType python setlocal foldmethod=indent
     "Do not fold small file
     "autocmd FileType c,cpp,vim if line('$') < 500 | normal zR | endif
 
