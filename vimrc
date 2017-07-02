@@ -32,6 +32,7 @@ Plug 'tpope/vim-surround'
 
 "EXTENDED (productive) {{{2
 Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
 
