@@ -174,6 +174,11 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 "loading time 1ms
 "identify build-folder by searching "upwards" for "build" from "." to "~/sources"
 let projBuildDir = finddir('build', '.;$HOME/sources')
+"TODO save all buffers
+if &mod
+    execute ':wa'
+endif
+
 if projBuildDir !=""
     let &makeprg='cmake --build ' . shellescape(projBuildDir) . ' --target '
 endif
