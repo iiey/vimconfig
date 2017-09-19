@@ -173,7 +173,7 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 "MAKE {{{
 "loading time 1ms
 "identify build-folder by searching "upwards" for "build" from "." to "~/sources"
-let projBuildDir = finddir('build', '.;$HOME/sources')
+let projBuildDir = fnamemodify(finddir('build', '.;$HOME/sources'), ':p:h')
 "TODO save all buffers
 if &mod
     execute ':wa'
