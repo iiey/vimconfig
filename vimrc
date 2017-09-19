@@ -36,6 +36,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
 Plug 'sickill/vim-pasta'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+    Plug 'junegunn/fzf.vim'
 
 Plug 'vim-utils/vim-man'
 "no zeal support on mac os because of dash

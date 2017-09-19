@@ -11,7 +11,7 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 command! -bang -nargs=* -complete=file Ag AsyncRun -program=grep @ <args>
 
 "FIXME search pattern with double quotes not work, :h <args>
-if !exists(':Ag') && executable('ag')
+if !exists(':Ag') && (executable('ag') || executable('rg'))
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 "}}}
