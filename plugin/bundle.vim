@@ -42,7 +42,8 @@ let g:airline#extensions#tmuxline#enabled = 0       "disable autoload same theme
 "guess projRootDir by checking version control system
 for vcs in ['.git', '.svn', '.hg']
     "searching from current "." upwards ";" to "~/sources"
-    let projRootDir = fnamemodify(finddir(vcs, '.;$HOME/sources'), ':h')
+    "see also filename-modifiers: :p --> full path, :h --> take head remove last component
+    let projRootDir = fnamemodify(finddir(vcs, '.;$HOME/sources'), ':p:h:h')
     if isdirectory(projRootDir.'/'.vcs)
         "init env-var for later uses
         let $proj = projRootDir
