@@ -228,14 +228,23 @@ let b:bad_whitespace_show=0
 
 "GREP - SILVER SEARCH {{{
 if executable('ag')
-  "use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  "use ag over vimgrep
+  set grepprg=ag\ --vimgrep
 
   "use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
   "ag is fast that ctrlp doesn't need to cache
   let g:ctrlp_use_caching = 0
+endif
+"}}}
 
+"TODO use ripgrep with fzf
+"GREP - RIPGREP {{{
+if executable('rg')
+  "use rg over ag
+  set grepprg=rg\ --vimgrep
+  let g:ctrlp_user_command = 'rg --files %s'
+  let g:ctrlp_use_caching = 0
 endif
 "}}}

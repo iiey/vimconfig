@@ -38,11 +38,13 @@ nnoremap <C-q> :qa!<cr>
 "save all & quit
 nnoremap <C-s> :xa<cr>
 
-"silver search (disable line substitute)
+"grep (disable line substitute)
 "<c-r> inserts contain of named register, '=" register expr, <cword> expr of word under cursor
 "see :h c_ctrl-r
 "use double quote to escape regex character
 nnoremap S :Ag<space>"<c-r>=expand("<cword>")<cr>"
+"open fuzzy finder
+nnoremap [f :FZF<cr>
 "change working directory
 nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 
