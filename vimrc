@@ -35,7 +35,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
-Plug 'sickill/vim-pasta'
+Plug 'tpope/vim-vinegar'
+"Plug 'sickill/vim-pasta'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
     Plug 'junegunn/fzf.vim'
 
