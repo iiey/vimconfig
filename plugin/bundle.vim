@@ -201,6 +201,10 @@ nmap <leader>f <Plug>(easymotion-f)
 let g:EasyMotion_smartcase = 1
 "}}}
 
+"FZF.VIM {{{
+"define window layout
+let g:fzf_layout = { 'down': '~30%' }
+"}}}
 
 "OTHER PLUGINS {{{
 "CPP-ENHANCED-HIGHLIGHT
@@ -226,6 +230,8 @@ let b:bad_whitespace_show=0
 " }}}
 
 
+"fzf.vim uses FZF_DEFAULT_COMMAND
+"':Ag' uses grepgrp
 "GREP - SILVER SEARCH {{{
 if executable('ag')
   "use ag over vimgrep
@@ -239,7 +245,6 @@ if executable('ag')
 endif
 "}}}
 
-"TODO use ripgrep with fzf
 "GREP - RIPGREP {{{
 if executable('rg')
   "use rg over ag

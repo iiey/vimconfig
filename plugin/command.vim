@@ -29,6 +29,11 @@ if executable('tmux') && executable('cppman')
 endif
 "}}}
 
+"FZF.VIM {{{
+"Files command with preview window
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+"}}}
+
 " COMMANDS DEFINITION {{{
 command! OnQuit         call utilfunc#onquit()
 command! UpdateCtags    call utilfunc#updatectags($proj)
