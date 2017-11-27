@@ -30,8 +30,18 @@ endif
 "}}}
 
 "FZF.VIM {{{
-"Files command with preview window
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+if executable('fzf')
+    "Files command with preview window
+    command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+    "Ripgrep
+    command! -bang -nargs=* -complete=file Rg
+                \ call fzf#vim#grep(
+                \   'rg --column --line-number --no-heading --color=always --ignore-case ' . <q-args>, 1,
+                \   <bang>0 ? fzf#vim#with_preview('up:60%')
+                \           : fzf#vim#with_preview('right:50%:hidden', 'ctrl-w'),
+                \   <bang>0)
+endif
 "}}}
 
 " COMMANDS DEFINITION {{{
