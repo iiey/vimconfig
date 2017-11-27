@@ -38,16 +38,6 @@ nnoremap <C-q> :qa!<cr>
 "save all & quit
 nnoremap <C-s> :xa<cr>
 
-"search in this file (disable line substitute)
-"<c-r> inserts contain of named register, '=" register expr, <cword> expr of word under cursor
-"see :h c_ctrl-r
-"use double quote to escape regex character
-nnoremap S :Ag<space>"<c-r>=expand("<cword>")<cr>"<space>%:p
-"open fuzzy finder
-nnoremap [f :FZF<cr>
-"change working directory
-nnoremap [cd :cd %:p:h<cr>:pwd<cr>
-
 "WINDOW:
 "s for split and disable word substitude
 noremap s <c-w>
@@ -79,19 +69,33 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <c-]> <c-]>zz
 "search on browser
-nnoremap <silent> gy :call utilfunc#googlit()<cr>
-"manual change cword forwards
-"repeat with: <c-[>(goto normal) n(ext match) .(repeat)
-nnoremap c* *<c-o>cgn
-
-"SWITCH HEADER:
-nnoremap ,s :ToggleCode<cr>
+nnoremap <silent> [b :call utilfunc#googlit()<cr>
+"search with silversearcher
+"<c-r> inserts contain of named register, '=" register expr, <cword> expr of word under cursor. See :h c_ctrl-r
+"use double quote to escape regex character
+" %:p current filename, %:p:h truncate name -> current dir
+nnoremap [s :Ag<space>"<c-r>=expand("<cword>")<cr>"<space>%:p
+nnoremap [S :Ag<space>"<c-r>=expand("<cword>")<cr>"<space>%:p<cr>
+"search with ripgrep
+nnoremap [r :Rg<space>"<c-r>=expand("<cword>")<cr>"
+nnoremap [R :Rg<space>"<c-r>=expand("<cword>")<cr>"<cr>
+"search with fuzzy finder
+nnoremap [f :FZF<cr>
+"change working directory
+nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 
 "TABS JUMP:
 "tabprevious (gT) and tapnext (gt)
 "or ngt for jumping to n.te tab
 noremap <C-S><left> :tabp<cr>
 noremap <C-S><right> :tabn<cr>
+
+"SWITCH HEADER:
+nnoremap ,s :ToggleCode<cr>
+
+"manual change cword forwards
+"repeat with: <c-[>(goto normal) n(ext match) .(repeat)
+nnoremap c* *<c-o>cgn
 
 "map vertical help
 cnoremap vh vert botright help<space>
