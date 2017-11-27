@@ -133,7 +133,7 @@ endfunction
 function! utilfunc#async_onexit()
     "user can close quickfix manually if it displays grep results
     let l:grep_job = 0
-    for cmd in ['^ag', '^ack', '^grep']
+    for cmd in ['^ag', '^ack', '^grep', '^rg']
         if @: =~? cmd | let l:grep_job += 1 | endif
     endfor
     "create a timer if only job other than grep succeeded
