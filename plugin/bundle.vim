@@ -204,6 +204,8 @@ let g:EasyMotion_smartcase = 1
 "FZF.VIM {{{
 "define window layout
 let g:fzf_layout = { 'down': '~30%' }
+" [Commands] -- expect expression for directly executing the command
+let g:fzf_commands_expect = 'ctrl-x'
 "}}}
 
 "OTHER PLUGINS {{{
