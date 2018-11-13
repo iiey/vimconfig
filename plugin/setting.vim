@@ -137,6 +137,13 @@ if filereadable("/usr/share/dict/words")
     set complete+=k                     "<c-x><c-k> to trigger this list
 endif
 
+"THESAURUS
+"Add personal synonym files
+if !empty(glob("~/.vim/dict"))
+    set thesaurus+=~/.vim/dict/thesaurus-vim-en
+    set thesaurus+=~/.vim/dict/thesaurus-vim-de
+endif
+
 "OMNI COMPLETION
 set omnifunc=syntaxcomplete#Complete    "open in I-Mode <c-x><c-o>, navigate <c-n/p>, close <c-e>
 
