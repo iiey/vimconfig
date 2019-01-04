@@ -7,13 +7,6 @@
 "Note plugins are not run, we cannot check if exists(':AsyncRun')
 ":Make runs :make in background with asyncrun
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-":Ag runs :grep in background with asyncrun
-command! -bang -nargs=* -complete=file Ag AsyncRun -program=grep @ <args>
-
-"FIXME search pattern with double quotes not work, :h <args>
-if !exists(':Ag') && (executable('ag') || executable('rg'))
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-endif
 "}}}
 
 "CPPMAN {{{
@@ -34,12 +27,21 @@ if executable('fzf')
     "Files command with preview window
     command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-    "Ripgrep
+    "fzf#vim#grep(command, with_column, [options], [fullscreen])
+    "with_column: 0 -> output of 'command' not include column numbers, otherwise 1
+    "fullscreen: bang<0> evaluates to 0 if no bang (!) right after 'command', otherise 1
+    "git grep
+    command! -bang -nargs=* GGrep
+                \ call fzf#vim#grep(
+                \   'git grep --color=always --line-number '.shellescape(<q-args>), 0,
+                \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
+
+    "ripgrep
     command! -bang -nargs=* -complete=file Rg
                 \ call fzf#vim#grep(
-                \   'rg --column --line-number --no-heading --color=always --ignore-case ' . <q-args>, 1,
-                \   <bang>0 ? fzf#vim#with_preview('up:60%')
-                \           : fzf#vim#with_preview('right:50%:hidden', 'ctrl-w'),
+                \   'rg --column --line-number --no-heading --color=always --smart-case ' . shellescape(<q-args>), 1,
+                \   <bang>0 ? fzf#vim#with_preview('up:70%')
+                \           : fzf#vim#with_preview('right:50%', '?'),
                 \   <bang>0)
 endif
 "}}}
