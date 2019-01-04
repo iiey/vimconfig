@@ -70,18 +70,18 @@ nnoremap g# g#zz
 nnoremap <c-]> <c-]>zz
 "search on browser
 nnoremap <silent> [b :call utilfunc#googlit()<cr>
-"search with silversearcher
+"search with git grep
 "<c-r> inserts contain of named register, '=" register expr, <cword> expr of word under cursor. See :h c_ctrl-r
 "use double quote to escape regex character
-" %:p current filename, %:p:h truncate name -> current dir
-nnoremap [s :Ag<space>"<c-r>=expand("<cword>")<cr>"<space>%:p
-nnoremap [S :Ag<space>"<c-r>=expand("<cword>")<cr>"<space>%:p<cr>
+nnoremap [g :GGrep<space><c-r>=expand("<cword>")<cr>
+nnoremap [G :GGrep<space><c-r>=expand("<cword>")<cr><cr>
 "search with ripgrep
-nnoremap [r :Rg<space>"<c-r>=expand("<cword>")<cr>"
-nnoremap [R :Rg<space>"<c-r>=expand("<cword>")<cr>"<cr>
+nnoremap [r :Rg!<space><c-r>=expand("<cword>")<cr><cr>
+nnoremap [R :Rg<space><c-r>=expand("<cword>")<cr><cr>
 "search with fuzzy finder
-nnoremap [f :FZF<cr>
+nnoremap [f :Files<cr>
 "change working directory
+" %:p current filename, %:p:h truncate name -> current dir
 nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 
 "TABS JUMP:
