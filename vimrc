@@ -34,7 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/gv.vim'
+    Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-vinegar'
 "Plug 'sickill/vim-pasta'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -65,6 +65,7 @@ Plug 'scrooloose/nerdtree', {'on': []}
     Plug 'ryanoasis/vim-devicons'
 Plug 'edkolev/tmuxline.vim'
 Plug 'blueyed/vim-diminactive'
+Plug 'peterhoeg/vim-qml'
 "}}}
 
 "initalize plugin system
