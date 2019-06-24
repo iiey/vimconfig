@@ -221,8 +221,17 @@ let g:EasyMotion_smartcase = 1
 "FZF.VIM {{{
 "define window layout
 let g:fzf_layout = { 'down': '~30%' }
-" [Commands] -- expect expression for directly executing the command
-let g:fzf_commands_expect = 'ctrl-x'
+
+":Buffers -- jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+":Commands -- expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+"change default behaviour jump to existing tab if possible
+let g:fzf_action = {
+    \ 'ctrl-t': 'tab drop',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
 "}}}
 
 "OTHER PLUGINS {{{
