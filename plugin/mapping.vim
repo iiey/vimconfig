@@ -35,8 +35,8 @@ nnoremap <C-p> :cprevious<cr>zz
 inoremap <expr> <c-d> utilfunc#hudigraphs()
 "quit all not save
 nnoremap <C-q> :qa!<cr>
-"save all & quit
-nnoremap <C-s> :xa<cr>
+"save all
+nnoremap <C-s> :wa<cr>
 
 "WINDOW:
 "s for split and disable word substitude
@@ -68,6 +68,7 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <c-]> <c-]>zz
+nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
 "search on browser
 nnoremap <silent> [b :call utilfunc#googlit()<cr>
 "search with git grep
