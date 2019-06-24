@@ -70,7 +70,7 @@ nnoremap g# g#zz
 nnoremap <c-]> <c-]>zz
 nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
 "search on browser
-nnoremap <silent> [b :call utilfunc#googlit()<cr>
+nnoremap <silent> [b :call utilfunc#search()<cr>
 "search with git grep
 "<c-r> inserts contain of named register, '=" register expr, <cword> expr of word under cursor. See :h c_ctrl-r
 "use double quote to escape regex character
