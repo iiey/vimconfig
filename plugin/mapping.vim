@@ -67,7 +67,6 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
-nnoremap <c-]> <c-]>zz
 nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
 "search on browser
 nnoremap <silent> [b :call utilfunc#search()<cr>
@@ -90,6 +89,14 @@ nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 "or ngt for jumping to n.te tab
 noremap <C-S><left> :tabp<cr>
 noremap <C-S><right> :tabn<cr>
+
+"TAG JUMP:
+"get desired behaviour with simpler keystroke
+nnoremap <c-]> g<c-]>
+vnoremap <c-]> g<c-]>
+"swap tjump g_ctrl-] with above commands
+nnoremap g<c-]> <c-]>
+vnoremap g<c-]> <c-]>
 
 "SWITCH HEADER:
 nnoremap ,s :ToggleCode<cr>
