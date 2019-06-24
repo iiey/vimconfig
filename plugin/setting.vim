@@ -156,18 +156,31 @@ set completeopt=longest,menuone
 "pumvisible: return non-zero if PopUpMenu visible otherwise false
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
             \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-"COMMAND-LINE
-"Improve tab completion in command mode
-"if searching for file, tell vim to look downwards recursive (two asterisks)
-"See also help path, file-searching and cpt
-"set path +=**
-"show candidates in a menu line, iterate with tab and shift-tab
-"set wildmenu
-"or list all matches with tab (same as ctrl-d)
-"set wildmode=longest,list
 "}}}
 
+"MISCELLANEOUS {{{
+""Improve tab completion in command mode
+""if searching for file, tell vim to look downwards recursive (two asterisks)
+""See also help path, file-searching and cpt
+"set path +=**
+
+""make vim aware of repo files by adding git root directory to 'path'
+""use systemlist() and get first elem without handling newline in result
+""like system() but results of shell cmd as list (no trailing newline or space)
+"let gitRootDir = get(systemlist("git rev-parse --show-toplevel"), 0)
+""check exit_status of last shell cmd
+"if v:shell_error == 0 && strlen(gitRootDir) != 0
+"    let &path.= gitRootDir . "/**"
+"endif
+
+""show candidates in a menu line, iterate with tab and shift-tab
+"set wildmenu
+""or list all matches with tab (same as ctrl-d)
+"set wildmode=longest,list
+
+"Use verticale split when starting termdebug
+let g:termdebug_wide = 1
+"}}}
 
 "EXUBERANT CTAGS {{{
 set tags=./.tags;$HOME/sources              "searching for .tags from current upwards to ~/sources (stop-dir)
@@ -176,17 +189,13 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 "set tags+=$HOME/.vim/tags/qt
 " }}}
 
-
 "MAKE {{{
 "loading time 1ms
 "identify build-folder by searching "upwards" for "build" from "." to "~/sources"
 "TODO handle build directory with name other than 'build'
 let projBuildDir = fnamemodify(finddir('build', '.;$HOME/sources'), ':p:h')
-"TODO save all buffers
-if &mod
-    execute ':wa'
-endif
 
+"TODO check &mod and save all buffers before running make
 if projBuildDir !=""
     let &makeprg='cmake --build ' . shellescape(projBuildDir) . ' --target '
 endif
