@@ -230,6 +230,11 @@ let g:tagbar_autofocus=1                "focus on actual function
 let g:better_whitespace_filetypes_blacklist=['txt', 'csv', 'ppm']
 "TODO modify plugin to have init-option
 let g:bad_whitespace_default=0
+
+"ZEAVIM
+"configure default docsets searching based on file types
+let g:zv_file_types = {
+            \   'cpp': 'cpp,opencv,qt' }
 " }}}
 
 

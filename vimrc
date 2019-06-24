@@ -33,7 +33,7 @@ Plug 'tpope/vim-surround'
 "EXTENDED (productive) {{{2
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'tag': 'v2.4' }
     Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-vinegar'
 "Plug 'sickill/vim-pasta'
