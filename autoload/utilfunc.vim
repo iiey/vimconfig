@@ -89,16 +89,11 @@ function! utilfunc#hudigraphs()
     return "\<c-k>"
 endfunction
 
-"Browser stuff
-"search current keyword
-function! utilfunc#googlit()
-    let url = "http://www.google.com/search?q=" . expand("<cWORD>")
-    call netrw#BrowseX(url, 0)
-endfunction
-
-"search phrase with command :Search
-function! utilfunc#search(phrase)
-    let url = "http://www.google.com/search?q=" . a:phrase
+"Search keyword in browser
+"see :h function-argument
+function! utilfunc#search(...)
+    let url = "http://www.google.com/search?q="
+    let url .= (a:0 > 0) ? join(a:000, '') : expand("<cword>")
     call netrw#BrowseX(url, 0)
 endfunction
 
