@@ -104,7 +104,8 @@ endif
 " COLORSCHEME {{{
 "Open vim with theme instead default
 set background=dark
-if $KONSOLE_PROFILE_NAME ==? "solarized"
+if $KONSOLE_PROFILE_NAME =~? "solarized"
+    if $KONSOLE_PROFILE_NAME =~? "light" | set background=light | endif
     "loading time: 6ms
     silent! colorscheme solarized
     let g:airline_theme='solarized'
