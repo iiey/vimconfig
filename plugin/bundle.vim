@@ -155,14 +155,28 @@ let g:ctrlp_cmd = 'CtrlPMixed'                          "invoke default command 
 let NERDTreeIgnore=['build', '\~$']
 "hide first help line
 let NERDTreeMinimalUI = 1
+"do not deactivate netrw (for opening directory)
+let g:NERDTreeHijackNetrw = 0
 
 "NERDTREE_TABS
 let g:nerdtree_tabs_autofind = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 "NETRW
-let g:NERDTreeHijackNetrw = 0   "do not deactivate netrw (for opening directory)
-let g:netrw_liststyle = 3       "tree style
+":help netrw-quickmap --> to see all shortcuts
+"suppress banner, I to toggle it
+let g:netrw_banner = 0
+"enter to open file in previous window
+"o/v/t open file in new horizontal/vertical split or new tab
+"x open file with default system app
+"p to preview in split. Default 0 is vertical split
+let g:netrw_preview = 1
+"specify action when opening file with <cr>
+"let g:netrw_browse_split = 1
+"tree style, i to cycle modes
+let g:netrw_liststyle = 3
+"define width
+let g:netrw_winsize = 25
 "}}}
 
 
@@ -172,11 +186,14 @@ let g:netrw_liststyle = 3       "tree style
 "loading devicon
 let g:webdevicons_enable = 1
 
-" Force extra padding in NERDTree so that the filetype icons line up vertically
+"force extra padding in NERDTree so that the filetype icons line up vertically
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 "padding between symbol and text
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+
+"disable icon on vim-airline's tabline
+let g:webdevicons_enable_airline_tabline = 0
 
 
 "NERDTREE_HIGHLIGHT
