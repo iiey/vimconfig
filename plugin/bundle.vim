@@ -26,6 +26,31 @@ let g:airline#extensions#whitespace#enabled = 0
 "mostly edited files are utf-8 so skip this info
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
+"statusline: shorten most used modes with characters e.g. N instead of NORMAL
+"see also :h vim-modes
+let g:airline_mode_map = {
+    \ '__'      : '-',
+    \ 'c'       : 'C',
+    \ 'cv'      : 'VIM EX',
+    \ 'ce'      : 'EX',
+    \ 'i'       : 'I',
+    \ 'ic'      : 'I-C',
+    \ 'ix'      : 'I-C',
+    \ 'multi'   : 'MULTI',
+    \ 'n'       : 'N',
+    \ 'ni'      : '(INSERT)',
+    \ 'no'      : 'N-OP',
+    \ 'R'       : 'R',
+    \ 'Rv'      : 'R-V',
+    \ 's'       : 'S',
+    \ 'S'       : 'S-L',
+    \ ''      : 'S-B',
+    \ 't'       : 'T',
+    \ 'v'       : 'V',
+    \ 'V'       : 'V-L',
+    \ ''      : 'V-B',
+    \ }
+
 
 "AIRLINE-THEMES EXTENSION
 "theme name must match one of files under airline-themes/autoload/airline/themes
