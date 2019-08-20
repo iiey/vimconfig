@@ -193,12 +193,13 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 "MAKE {{{
 "loading time 1ms
 "identify build-folder by searching "upwards" for "build" from "." to "~/sources"
-"TODO handle build directory with name other than 'build'
 let projBuildDir = fnamemodify(finddir('build', '.;$HOME/sources'), ':p:h')
-
-"TODO check &mod and save all buffers before running make
-if projBuildDir !=""
+if projBuildDir =~ "/build"
     let &makeprg='cmake --build ' . shellescape(projBuildDir) . ' --target '
+else
+    unlet projBuildDir
 endif
 "Note: Using "-- -jN" to pass jobs config to make command
+"Note: above is just a personal case which comes into handy, consider remove it later
+"use SetBuildDir command to manual set a cmake project build directory
 "}}}

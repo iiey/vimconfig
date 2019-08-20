@@ -6,6 +6,8 @@
 "TODO create commands if only asyncrun available
 "Note plugins are not run, we cannot check if exists(':AsyncRun')
 ":Make runs :make in background with asyncrun
+"and make again determined by makeprg see also @utilfunc#setbuilddir()
+"Usage: :Make PROG_NAME -- -jN
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 "}}}
 
@@ -53,8 +55,9 @@ command! ToggleCode     call utilfunc#togglecode()
 command! ToggleColor    call utilfunc#togglecolor()
 command! ToggleLine     call utilfunc#toggleline()
 command! ToggleTree     call utilfunc#toggletree()
-command! -nargs=* -complete=color ChangeTheme call utilfunc#changetheme('<args>')
-command! -nargs=* Search call utilfunc#search('<args>')
+command! -nargs=*                   Search          call utilfunc#search('<args>')
+command! -nargs=1 -complete=color   ChangeTheme     call utilfunc#changetheme('<args>')
+command! -nargs=1 -complete=dir     SetBuildDir     call utilfunc#setbuilddir('<args>')
 "}}}
 
 
