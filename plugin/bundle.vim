@@ -190,7 +190,7 @@ let g:webdevicons_enable = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 "padding between symbol and text
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 "disable icon on vim-airline's tabline
 let g:webdevicons_enable_airline_tabline = 0
@@ -237,8 +237,6 @@ let g:fzf_action = {
 "OTHER PLUGINS {{{
 "CPP-ENHANCED-HIGHLIGHT
 let g:cpp_class_scope_highlight = 1
-"python-syntax
-let g:python_highlight_all = 1
 
 "UNDOTREE
 if has("persistent_undo")               "set undodir to one place
