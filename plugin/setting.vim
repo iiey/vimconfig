@@ -104,6 +104,7 @@ endif
 " COLORSCHEME {{{
 "Open vim with theme instead default
 set background=dark
+let g:airline_theme='minimalist'
 if $KONSOLE_PROFILE_NAME =~? "solarized"
     if $KONSOLE_PROFILE_NAME =~? "light" | set background=light | endif
     "loading time: 6ms
@@ -111,11 +112,9 @@ if $KONSOLE_PROFILE_NAME =~? "solarized"
     let g:airline_theme='solarized'
 elseif $KONSOLE_PROFILE_NAME ==? "tomorrow"
     silent! colorscheme tomorrow-night
-    let g:airline_theme='tomorrow'
 else
     "loading time: 7ms
     silent! colorscheme codedark
-    let g:airline_theme='codedark'
 endif
 
 "DIFFING

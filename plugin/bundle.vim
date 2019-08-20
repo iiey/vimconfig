@@ -1,7 +1,7 @@
 "Configure setting for plugins
 
 "VIM-AIRLINE {{{
-let g:airline_powerline_fonts=1                     "enable powerline font
+let g:airline_powerline_fonts=0                     "enable/disable powerline
 
 "TABLINE (upper bar)
 let g:airline#extensions#tabline#enabled = 1        "show tabline
@@ -34,6 +34,8 @@ let g:airline#extensions#whitespace#enabled = 0
 "2. create a snapshot file with :TmuxlineSnapshot [file]
 "3. add it to .tmux.conf: if-shell "test -f [file]" "source [file]"
 let g:airline#extensions#tmuxline#enabled = 0       "disable autoload same theme as vim when starts vim
+"enable/disable powerline symbols (default 1)
+"let g:tmuxline_powerline_separators = 0
 " }}}
 
 
