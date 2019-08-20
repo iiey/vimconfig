@@ -14,6 +14,11 @@ function! utilfunc#updatectags(proDir)
     endif
 endfunction
 
+"Set project build directory
+function! utilfunc#setbuilddir(buildDir)
+    let &makeprg='cmake --build ' . shellescape(a:buildDir) . ' --target '
+endfunction
+
 "Change colorscheme and airlinetheme
 function! utilfunc#changetheme(color)
     let l:color = a:color
