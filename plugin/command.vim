@@ -93,8 +93,8 @@ augroup vimrc
     "FIXME set specific folding for vim files
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType python setlocal foldmethod=indent
-    "Do not fold small file
-    "autocmd FileType c,cpp,vim if line('$') < 500 | normal zR | endif
+    "disable fmd=syntax on large file (causing lagging when editing)
+    autocmd FileType c,cpp,python,sh,xml if line('$') > 4000 | setlocal foldmethod=indent | endif
 
     "FIXME autoread for vim terminal
     "using this event to update file silently but not trigger too often

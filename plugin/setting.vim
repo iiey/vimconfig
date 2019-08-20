@@ -43,10 +43,11 @@ if has('linebreak')         "show character when long line's wrapped to fit the 
     let &showbreak='↪ '     "downwards arrow with tip rightwards (U+21B3, UTF-8: E2 86 B3)
 endif
 
+"warning: extremely slow by editing large file with fmd syntax
 if has('folding')           "folding option
-    set foldmethod=syntax       "global folding method
-    set foldlevel=3             "fold with higher level with be closed (0: always)
-    set foldnestmax=1           "close only outermost fold
+    set foldmethod=syntax   "global folding method
+    set foldlevel=3         "fold with higher level with be closed (0: always)
+    set foldnestmax=1       "close only outermost fold
 endif
 
 if has('vertsplit')
