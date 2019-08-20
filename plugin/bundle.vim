@@ -160,10 +160,13 @@ if v:version >= 704
     "using snippets template from: https://github.com/honza/vim-snippets.git
     "note: it will search in runtimepath for dir with names on the list below
     let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+    "<tab> slows down normal use-case dramatically
+    let g:UltiSnipsExpandTrigger='<c-l>'
     "<c-tab> reserved by iterm for switching tab
-    let g:UltiSnipsListSnippets='<c-h>'
-    "<c-k> interferes with completion i_ctrl-x
-    let g:UltiSnipsJumpBackwardTrigger='<c-l>'
+    let g:UltiSnipsListSnippets='<c-l>l'
+    "<c-k> interferes with i_ctrl-k
+    let g:UltiSnipsJumpBackwardTrigger='<c-l>p'
+    let g:UltiSnipsJumpForwardTrigger='<c-l>n'
 endif
 " }}}
 

@@ -32,7 +32,9 @@ nnoremap <C-n> :cnext<cr>zz
 nnoremap <C-p> :cprevious<cr>zz
 
 "Head up diagraph
-inoremap <expr> <c-d> utilfunc#hudigraphs()
+"usage: c-k twice in insert-mode get digraph table, scroll to the end
+"enter to quit, type two chars which presents the symbol
+inoremap <expr> <c-k><c-k> utilfunc#hudigraphs()
 "quit all not save
 nnoremap <C-q> :qa!<cr>
 "save all
@@ -59,14 +61,23 @@ nnoremap <C-y> 5<C-y>
 nnoremap <C-j> 5<C-e>
 nnoremap <C-k> 5<C-y>
 
+"MOVEMENT IN INSER-MODE:
+"override default i_ctrl-a and i_ctrl-e
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+"don't need funtion i_ctrl-b and i_ctrl-f
+inoremap <c-b> <left>
+inoremap <c-f> <right>
+
 "SEARCHING:
 "make matches appear in the middle of screen (add zz)
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
+nnoremap g; g;zz
+nnoremap g, g,zz
+"append zz to '<char> when jumping to mark triggered
 nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
 "search on browser
 nnoremap <silent> [b :call utilfunc#search()<cr>
@@ -83,12 +94,6 @@ nnoremap [f :Files<cr>
 "change working directory
 " %:p current filename, %:p:h truncate name -> current dir
 nnoremap [cd :cd %:p:h<cr>:pwd<cr>
-
-"TABS JUMP:
-"tabprevious (gT) and tapnext (gt)
-"or ngt for jumping to n.te tab
-noremap <C-S><left> :tabp<cr>
-noremap <C-S><right> :tabn<cr>
 
 "TAG JUMP:
 "get desired behaviour with simpler keystroke
@@ -117,7 +122,7 @@ nnoremap <silent>   <F4> :UpdateCtags<cr>
 nnoremap            <F5> :UndotreeToggle<cr>
 
 nnoremap <silent>   <F10> :OnQuit<cr>
-imap                <F10> <c-o><F10>                        "if in Insert-Mode switch to Insert-Normal-Mode to execute F10
+imap                <F10> <c-o><F10>                "switch to Insert-Normal-Mode to exec F10
 
 "DEACTIVATION:
 "useless substitutions
