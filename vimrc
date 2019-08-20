@@ -27,7 +27,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'iiey/vimconfig'
 
 "BASIC (essential) {{{2
-Plug 'bitc/vim-bad-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'wsdjeg/vim-fetch'
 Plug 'tpope/vim-surround'

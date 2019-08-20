@@ -250,10 +250,17 @@ let g:undotree_WindowLayout = 3         "undo-/diff-window open on the left side
 "TAGBAR
 let g:tagbar_autofocus=1                "focus on actual function
 
-"BAD-WHITESPACE
-let g:better_whitespace_filetypes_blacklist=['txt', 'csv', 'ppm']
-"TODO modify plugin to have init-option
-let g:bad_whitespace_default=0
+"BETTER-WHITESPACE
+"show bad whitespace on open, manual enable with :ToggleWhitespace
+let g:better_whitespace_enabled = 0
+
+"disable highlight on file, don't use default list, override it
+let g:better_whitespace_filetypes_blacklist=['markdown', 'qf']
+
+"auto clear on save
+let g:strip_whitespace_on_save = 1
+let g:strip_only_modified_lines = 1
+let g:strip_whitespace_confirm = 1
 
 "ZEAVIM
 "configure default docsets searching based on file types
