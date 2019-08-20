@@ -18,9 +18,6 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 if executable('tmux') && executable('cppman')
     command! -nargs=+ Cppman silent! call system("tmux split-window cppman " . expand(<q-args>))
     command! -nargs=+ CppMan silent! call system("tmux split-window -h cppman " . expand(<q-args>))
-
-"    autocmd FileType cpp nnoremap <silent><buffer> <leader>k <Esc>:Cppman <cword><CR>
-"    autocmd FileType cpp nnoremap <silent><buffer> <leader>K <Esc>:CppMan <cword><CR>
 endif
 "}}}
 
@@ -60,26 +57,20 @@ command! -nargs=1 -complete=color   ChangeTheme     call utilfunc#changetheme('<
 command! -nargs=1 -complete=dir     SetBuildDir     call utilfunc#setbuilddir('<args>')
 "}}}
 
-
 " AUTOCMD {{{
-augroup vimplug
-    "prevent calling multiple times by sourcing
-    autocmd!
+augroup vimplug | au!
     "download new coming plugins
     autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
                         \| PlugInstall --sync | q | endif
 augroup END
 
 augroup vimrc
+    "prevent calling multiple times by sourcing
     autocmd!
-    "update tags on saving
-    "autocmd BufWritePost *.cpp,*.h,*.c silent! call UpdateCtags(projRootDir)
-    "change directory of current local window
-    "autocmd bufenter * silent! lcd %:p:h
 
     "TODO write function in case more than one left behind windows of these kinds
     "close vim if one left behind window is nerdtree, quickfix or help
-"    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     autocmd bufenter * if (winnr("$") == 1 && getbufvar(winbufnr(1), '&buftype') == 'quickfix') | q | endif
     autocmd bufenter * if (winnr("$") == 1 && getbufvar(winbufnr(1), '&buftype') == 'help') | q | endif
 
@@ -90,14 +81,11 @@ augroup vimrc
     "one line statement without timer function
     "autocmd User AsyncRunStop if g:asyncrun_status=='success'|call asyncrun#quickfix_toggle(8, 0)|endif
 
-    "FIXME set specific folding for vim files
+    "specific folding method
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType python setlocal foldmethod=indent
+
     "disable fmd=syntax on large file (causing lagging when editing)
     autocmd FileType c,cpp,python,sh,xml if line('$') > 4000 | setlocal foldmethod=indent | endif
-
-    "FIXME autoread for vim terminal
-    "using this event to update file silently but not trigger too often
-    "autocmd CursorHold * checktime
 augroup END
 "}}}
