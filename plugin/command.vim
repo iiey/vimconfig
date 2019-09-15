@@ -49,6 +49,7 @@ endif
 command! -nargs=1 -complete=color   ChangeTheme     call utilfunc#changetheme('<args>')
 command! -nargs=*                   Search          call utilfunc#search('<args>')
 command! -nargs=1 -complete=dir     SetBuildDir     call utilfunc#setbuilddir('<args>')
+command! -nargs=1                   ToggleCode      call utilfunc#togglecode('<args>')
 "}}}
 
 " AUTOCMD {{{
