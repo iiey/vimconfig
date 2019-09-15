@@ -53,6 +53,11 @@ command! -nargs=1                   ToggleCode      call utilfunc#togglecode('<a
 "}}}
 
 " AUTOCMD {{{
+augroup lsp | autocmd!
+    "<buffer> mapping so it enabled only for certain filetypes
+    autocmd FileType c,cpp,python,sh call utilfunc#maplsp()
+augroup END
+
 augroup vimplug | au!
     "download new coming plugins
     autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
