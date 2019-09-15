@@ -129,7 +129,7 @@ hi SpellRare ctermfg=0 ctermbg=225 guifg=#000000 guibg=#ffd7ff
 hi TabLineFill ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi TabLineSel ctermfg=NONE ctermbg=23 cterm=bold guifg=NONE guibg=#005f5f gui=bold
 hi TabLine ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi SignColumn ctermfg=0 ctermbg=240 guifg=#000000 guibg=#585858
+hi SignColumn ctermfg=0 ctermbg=NONE guifg=#000000 guibg=#585858
 hi FoldColumn ctermfg=102 ctermbg=NONE cterm=NONE guifg=#878787 guibg=NONE gui=NONE
 hi WildMenu ctermfg=NONE ctermbg=23 cterm=bold guifg=NONE guibg=#005f5f gui=bold
 
