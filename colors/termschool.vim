@@ -19,6 +19,7 @@
 
 set background=dark
 highlight clear
+highlight clear CursorLineNr
 
 if exists("syntax_on")
   syntax reset
