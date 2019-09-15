@@ -117,15 +117,6 @@ else
     "loading time: 7ms
     silent! colorscheme codedark
 endif
-
-"DIFFING
-"note: a colorscheme must set first before request 'g:colors_name'
-if &diff && exists('g:colors_name') && g:colors_name != 'solarized'
-    highlight DiffAdd    cterm=bold ctermfg=white ctermbg=DarkGreen
-    highlight DiffDelete cterm=bold ctermfg=white ctermbg=DarkGrey
-    highlight DiffChange cterm=bold ctermfg=white ctermbg=DarkBlue
-    highlight DiffText   cterm=bold ctermfg=white ctermbg=DarkRed
-endif
 "}}}
 
 

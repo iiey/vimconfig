@@ -1,5 +1,5 @@
-if !empty(glob('~/.vim/local.vimrc'))
-    source ~/.vim/local.vimrc
+if !empty(glob('~/.vim/vimrc.local'))
+    source ~/.vim/vimrc.local
 endif
 
 "Install vimplug {{{1
@@ -40,7 +40,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
     Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'skywind3000/asyncrun.vim'
 
 "no zeal support on mac os because of dash
@@ -51,10 +50,6 @@ endif
 "ultisnip requires vim 7.4
 Plug 'SirVer/ultisnips', v:version >= 704 ? { 'tag': '3.2' } : { 'on' : [] }
     Plug 'honza/vim-snippets', v:version >= 704 ? {} : {'on' : []}
-"Plug 'xavierd/clang_complete', {'for': ['c', 'cpp']}
-
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'easymotion/vim-easymotion', {'on': '<Plug>(easymotion-f)'}
 "}}}
 
 "OTHERS (optional) {{{2
@@ -63,7 +58,6 @@ Plug 'iiey/vim-startify'
 Plug 'majutsushi/tagbar'
 Plug 'preservim/nerdtree', {'on': []}
     Plug 'ryanoasis/vim-devicons'
-Plug 'edkolev/tmuxline.vim'
 Plug 'blueyed/vim-diminactive'
 Plug 'peterhoeg/vim-qml'
 "}}}

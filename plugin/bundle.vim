@@ -130,30 +130,6 @@ endif
 "}}}
 
 
-"CLANG_COMPLETE {{{
-"Using omnifunc=ClangComplete because builtin ccomplete don't work correctly
-"<c-x><c-u> to trigger specific completefunc
-
-"path to directory which contains libclang.{dll|so|dylib} (win/linux/macos)
-"no need to configure if using default path /usr/lib
-let g:clang_library_path=expand("$HOME")."/lib/"
-"select first entry of popup menu
-let g:clang_auto_select=1
-"do not auto trigger completion (use c-x c-u)
-let g:clang_complete_auto=0
-
-"also complete parameters of function
-let g:clang_snippets = 1
-"default engine cannot jump between parameters
-"use ultisnip if it's available
-if v:version >= 704
-    let g:clang_snippets_engine = 'ultisnips'
-endif
-"prevent default key from disable tagjump <c-]>
-let g:clang_jumpto_declaration_key = '<c-w>['
-"}}}
-
-
 "ULTISNIPS {{{
 "Do not declare if not use
 if v:version >= 704
@@ -168,19 +144,6 @@ if v:version >= 704
     let g:UltiSnipsJumpBackwardTrigger='<c-l>p'
     let g:UltiSnipsJumpForwardTrigger='<c-l>n'
 endif
-" }}}
-
-
-"CTRLP {{{
-"ctrlp auto. finds projectRoot based on .svn/.git...
-let g:ctrlp_working_path_mode = 'ra'                    "working dir is nearest acestor of current file
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](.git|.svn|build|tmp)$',
-    \ 'file': '\v\.(exe|so|dll|swp|tags|zip)$'}         "exclude file and directories
-"set wildignore+=*/tmp/*,*/build/*,*.so,*.swp,*.zip
-let g:ctrlp_by_filename = 1                             "default searching by filename instead of full path
-let g:ctrlp_map = '[p'
-let g:ctrlp_cmd = 'CtrlPMixed'                          "invoke default command to find in file, buffer and mru
 " }}}
 
 
@@ -241,17 +204,6 @@ let g:NERDTreeFileExtensionHighlightFullName = 1
 " }}}
 
 
-"EASYMOTION {{{
-"uncomment for using <leader> instead of <leader>²
-"map <leader> <Plug>(easymotion-prefix)
-
-"remap only one feature
-nmap <leader>f <Plug>(easymotion-f)
-
-"v matches [v|V] and V matches only [V]
-let g:EasyMotion_smartcase = 1
-"}}}
-
 "FZF.VIM {{{
 "define window layout
 let g:fzf_layout = { 'down': '~30%' }
@@ -268,18 +220,10 @@ let g:fzf_action = {
     \ 'ctrl-v': 'vsplit' }
 "}}}
 
+
 "OTHER PLUGINS {{{
 "CPP-ENHANCED-HIGHLIGHT
 let g:cpp_class_scope_highlight = 1
-
-"UNDOTREE
-if has("persistent_undo")               "set undodir to one place
-    set undodir=~/.undodir/
-    set undofile
-endif
-
-let g:undotree_SetFocusWhenToggle = 1   "cursor moved to undo-window when opened
-let g:undotree_WindowLayout = 3         "undo-/diff-window open on the left side
 
 "TAGBAR
 let g:tagbar_autofocus=1                "focus on actual function
@@ -303,26 +247,19 @@ let g:zv_file_types = {
 " }}}
 
 
+"GREP {{{
 "fzf.vim uses FZF_DEFAULT_COMMAND
 "':Ag' uses grepgrp
-"GREP - SILVER SEARCH {{{
+
+"SILVER SEARCH
 if executable('ag')
   "use ag over vimgrep
   set grepprg=ag\ --vimgrep
-
-  "use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  "ag is fast that ctrlp doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
-"}}}
 
-"GREP - RIPGREP {{{
+"RIPGREP
 if executable('rg')
   "use rg over ag
   set grepprg=rg\ --vimgrep
-  let g:ctrlp_user_command = 'rg --files %s'
-  let g:ctrlp_use_caching = 0
 endif
 "}}}
