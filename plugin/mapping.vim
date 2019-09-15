@@ -110,10 +110,14 @@ vnoremap g<c-]> <c-]>
 "repeat with: <c-[>(goto normal) n(ext match) .(repeat)
 nnoremap c* *<c-o>cgn
 
+"COMMANDLINE MODE:
 "map vertical help
 cnoremap vh vert botright help<space>
 "map vertical splitfind
 cnoremap vf vert sf<space>
+"recall cmd-line history
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 "FN:
 nnoremap <silent>   <F2> :call utilfunc#toggletree()<cr>
