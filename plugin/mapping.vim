@@ -7,7 +7,7 @@ nnoremap <silent> <leader>b :buffers<cr>:buffer<space>
 "toggle colortheme
 nnoremap <silent> <leader>c :ToggleColor<cr>
 "relative line number
-nnoremap <silent> <leader>l :ToggleLine<cr>
+nnoremap <silent> <leader>l :call utilfunc#toggleline()<cr>
 "toggle highlight cursor
 nnoremap <silent> <leader>h :set cursorline!<cr>
 "find used keyword under cursor & ignore default [i
@@ -116,12 +116,12 @@ cnoremap vh vert botright help<space>
 cnoremap vf vert sf<space>
 
 "FN:
-nnoremap <silent>   <F2> :ToggleTree<cr>
+nnoremap <silent>   <F2> :call utilfunc#toggletree()<cr>
 nnoremap            <F3> :TagbarToggle<cr>
-nnoremap <silent>   <F4> :UpdateCtags<cr>
+nnoremap <silent>   <F4> :call utilfunc#updatectags($proj)<cr>  "see bundle.vim#CTAGS
 
-nnoremap <silent>   <F10> :OnQuit<cr>
-imap                <F10> <c-o><F10>                "switch to Insert-Normal-Mode to exec F10
+nnoremap <silent>   <F10> :call utilfunc#onquit()<cr>
+imap                <F10> <c-o><F10>                            "switch to Insert-Normal-Mode to exec F10
 
 "DEACTIVATION:
 "useless substitutions

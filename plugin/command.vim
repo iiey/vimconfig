@@ -46,14 +46,8 @@ endif
 "}}}
 
 " COMMANDS DEFINITION {{{
-command! OnQuit         call utilfunc#onquit()
-command! UpdateCtags    call utilfunc#updatectags($proj)
-command! ToggleCode     call utilfunc#togglecode()
-command! ToggleColor    call utilfunc#togglecolor()
-command! ToggleLine     call utilfunc#toggleline()
-command! ToggleTree     call utilfunc#toggletree()
-command! -nargs=*                   Search          call utilfunc#search('<args>')
 command! -nargs=1 -complete=color   ChangeTheme     call utilfunc#changetheme('<args>')
+command! -nargs=*                   Search          call utilfunc#search('<args>')
 command! -nargs=1 -complete=dir     SetBuildDir     call utilfunc#setbuilddir('<args>')
 "}}}
 
