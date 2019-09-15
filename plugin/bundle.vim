@@ -68,24 +68,6 @@ let g:airline#extensions#tmuxline#enabled = 0       "disable autoload same theme
 " }}}
 
 
-"CTAGS {{{
-"TODO: ensure env var not take effect other session
-"guess projRootDir by checking version control system
-for vcs in ['.git', '.svn', '.hg']
-    "searching from current "." upwards ";" to "~/sources"
-    "see also filename-modifiers: :p --> full path, :h --> take head remove last component
-    let projRootDir = fnamemodify(finddir(vcs, '.;$HOME/sources'), ':p:h:h')
-    if isdirectory(projRootDir.'/'.vcs)
-        "init env-var for later uses
-        let $proj = projRootDir
-        break
-    else
-        let $proj = ''
-    endif
-endfor
-"}}}
-
-
 "STARTIFY (modified) {{{
 if !empty(glob("~/.vim/bundle/*startify"))
     "STARTUP limit lists to show

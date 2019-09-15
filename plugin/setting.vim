@@ -178,6 +178,24 @@ set tags=./.tags;$HOME/sources              "searching for .tags from current up
 "set tags+=$HOME/.vim/tags/cpp
 "set tags+=$HOME/.vim/tags/opencv
 "set tags+=$HOME/.vim/tags/qt
+
+"guess projRootDir by checking version control system
+for vcs in ['.git', '.svn', '.hg']
+    "searching from current "." upwards ";" to "~/sources"
+    "see also filename-modifiers: :p --> full path, :h --> take head remove last component
+    let g:projRootDir = fnamemodify(finddir(vcs, '.;$HOME/sources'), ':p:h:h')
+    if isdirectory(g:projRootDir . '/' . vcs)
+        "set cwd at root so finder prog like fzf could check all subfiles
+        "exe auto concates it's args with spaces inbetween
+        silent! execute 'cd' g:projRootDir
+        break
+    else
+        unlet g:projRootDir
+    endif
+endfor
+"}}}
+
+
 " }}}
 
 "MAKE {{{

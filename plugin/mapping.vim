@@ -122,7 +122,7 @@ cnoremap <c-n> <down>
 "FN:
 nnoremap <silent>   <F2> :call utilfunc#toggletree()<cr>
 nnoremap            <F3> :TagbarToggle<cr>
-nnoremap <silent>   <F4> :call utilfunc#updatectags($proj)<cr>  "see bundle.vim#CTAGS
+nnoremap <silent>   <F4> :call utilfunc#updatectags(g:projRootDir)<cr>  "see bundle.vim#CTAGS
 
 nnoremap <silent>   <F10> :call utilfunc#onquit()<cr>
 imap                <F10> <c-o><F10>                            "switch to Insert-Normal-Mode to exec F10
