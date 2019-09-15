@@ -64,27 +64,13 @@ function! utilfunc#toggleline()
     endif
 endfunc
 
-"Toggle solarized/wombat colorscheme
-function! utilfunc#togglecolor()
-    if g:colors_name != 'solarized'
-        set background=dark
-        colorscheme solarized
-        AirlineTheme solarized
-    else
-        colorscheme wombat256mod
-        AirlineTheme wombat
-    endif
-endfunction
-
-"Toggle cpp header
+"Toggle c header/code
 "@see :h filename-modifiers
-"TODO expand file extension with tab
-function! utilfunc#togglecode()
-  if (expand ("%:e") == "cpp")
-    find %:t:r.h
-  else
-    find %:t:r.cpp
-  endif
+"arg: 'e[dit]', 'tabe', '[v]split'
+function! utilfunc#togglecode(...) abort
+    if &filetype !~ '^c.*' | return | endif
+    let open = (a:0 == 1) ? a:1 : 'edit'
+    execute open '%:p:r.' .. (expand("%:e") =~ '^c.*' ? 'h' : 'c*')
 endfunction
 
 "Head-up digraphs

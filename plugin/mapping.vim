@@ -4,8 +4,6 @@
 
 "buffers
 nnoremap <silent> <leader>b :buffers<cr>:buffer<space>
-"toggle colortheme
-nnoremap <silent> <leader>c :ToggleColor<cr>
 "relative line number
 nnoremap <silent> <leader>l :call utilfunc#toggleline()<cr>
 "toggle highlight cursor
@@ -95,6 +93,11 @@ nnoremap [f :Files<cr>
 " %:p current filename, %:p:h truncate name -> current dir
 nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 
+"SWITCH HEADER:
+"sourcecode-toggle
+nnoremap [v :ToggleCode vsplit<cr>
+nnoremap [t :ToggleCode tab drop<cr>
+
 "TAG JUMP:
 "get desired behaviour with simpler keystroke
 nnoremap <c-]> g<c-]>
@@ -102,9 +105,6 @@ vnoremap <c-]> g<c-]>
 "swap tjump g_ctrl-] with above commands
 nnoremap g<c-]> <c-]>
 vnoremap g<c-]> <c-]>
-
-"SWITCH HEADER:
-nnoremap ,s :ToggleCode<cr>
 
 "manual change cword forwards
 "repeat with: <c-[>(goto normal) n(ext match) .(repeat)
