@@ -119,7 +119,6 @@ cnoremap vf vert sf<space>
 nnoremap <silent>   <F2> :ToggleTree<cr>
 nnoremap            <F3> :TagbarToggle<cr>
 nnoremap <silent>   <F4> :UpdateCtags<cr>
-nnoremap            <F5> :UndotreeToggle<cr>
 
 nnoremap <silent>   <F10> :OnQuit<cr>
 imap                <F10> <c-o><F10>                "switch to Insert-Normal-Mode to exec F10
