@@ -5,6 +5,7 @@
 
 set background=dark
 highlight clear
+highlight clear CursorLineNr
 
 set t_Co=256
 
