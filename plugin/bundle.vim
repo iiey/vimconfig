@@ -111,6 +111,24 @@ if !empty(glob("~/.vim/bundle/*startify"))
 endif
 "}}}
 
+"LSP {{{
+"ALE - asynchronous lint engine
+"put options out of autocmd so it set before plugin loaded
+let g:ale_linters = {'cpp': ['clangd'], 'python': ['pyls'], 'bash': ['bash-language-server']}
+"linter not work well with c++ (external libs)
+let g:ale_enabled = 0
+let g:ale_completion_enabled = 1
+"do not overwhelm with trivial
+let g:ale_completion_max_suggestions = 20
+"do not interrupt, delay or swallow words while typing
+"could manually trigger with c-x_c-o (see maplsp)
+let g:ale_completion_delay = 900
+"COC - intellisense for vim
+"see :h coc-nvim
+"configuration coc-settings.json in ~/.vim or ~/.config/nvim
+"could manually trigger 'intellisense' with c-space (see maplsp)
+" }}}
+
 
 "ULTISNIPS {{{
 "Do not declare if not use

@@ -114,6 +114,29 @@ endfunction
 
 
 "PLUGIN FUNCTIONS {{{
+"lsp
+"create map for ale and coc
+function! utilfunc#maplsp()
+    if get(g:, 'loaded_ale', 0)
+        "<plug> mapping not work with 'nore'
+        imap <buffer> <leader>ac <Plug>(ale_complete)
+        nmap <buffer> <leader>ar <Plug>(ale_find_references)
+        nmap <buffer> <leader>ad <Plug>(ale_go_to_definition)
+        nmap <buffer> <leader>ah <Plug>(ale_hover)
+        nmap <buffer> <leader>at <Plug>(ale_toggle)
+
+        "use to trigger manually with c-x_c-o
+        if executable('clangd') || executable('pyls')
+            setlocal omnifunc=ale#completion#OmniFunc
+        endif
+    endif
+
+    if get(g:, 'did_coc_loaded', 0)
+        inoremap <buffer> <silent> <expr> <c-space>  coc#refresh()  "work in gui
+        inoremap <buffer> <silent> <expr> <nul>      coc#refresh()  "workaround in terminal
+    endif
+endfunction
+
 "asyncrun
 "helper function for closing quickfix after finishing job
 function! utilfunc#async_onexit()
