@@ -42,9 +42,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
     Plug 'junegunn/fzf.vim'
 Plug 'skywind3000/asyncrun.vim'
 
-if v:version > 800 || has('nvim-0.3.0')
-    Plug 'dense-analysis/ale'                           "use for lsp features
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}     "use intellisense engine without lsp
+"lsp
+if v:version > 800 || has('nvim-0.5.0')
+    Plug 'dense-analysis/ale'                           "linter and fixer
+    if executable('node')
+        Plug 'neoclide/coc.nvim', {'branch': 'release'} "completion
+    endif
 endif
 
 "no zeal support on mac os because of dash
