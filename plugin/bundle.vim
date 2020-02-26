@@ -114,7 +114,25 @@ endif
 "LSP {{{
 "ALE - asynchronous lint engine
 "put options out of autocmd so it set before plugin loaded
-let g:ale_linters = {'cpp': ['clangd'], 'python': ['pyls'], 'bash': ['bash-language-server']}
+let g:ale_linters = {
+    \   'cpp'   : ['clangd'],
+    \   'python': ['flake8'],
+    \   'bash'  : ['bash-language-server']
+    \}
+
+let g:ale_fixers = {
+    \   'python': ['yapf']
+    \}
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '-'
+"disable background color of signs
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+"disable background color of code error lines
+let g:ale_set_highlights = 0
+
 "linter not work well with c++ (external libs)
 let g:ale_enabled = 0
 let g:ale_completion_enabled = 1
@@ -123,6 +141,7 @@ let g:ale_completion_max_suggestions = 20
 "do not interrupt, delay or swallow words while typing
 "could manually trigger with c-x_c-o (see maplsp)
 let g:ale_completion_delay = 900
+
 "COC - intellisense for vim
 "see :h coc-nvim
 "configuration coc-settings.json in ~/.vim or ~/.config/nvim
