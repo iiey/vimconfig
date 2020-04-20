@@ -1,0 +1,2 @@
+in case findidr() finds nothing, fnamemodify() returns cwd
+that why we check whether projBuildDir is valid by regex contained "/build"
