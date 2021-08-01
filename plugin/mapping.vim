@@ -68,15 +68,16 @@ inoremap <c-b> <left>
 inoremap <c-f> <right>
 
 "SEARCHING:
-"make matches appear in the middle of screen (add zz)
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g; g;zz
-nnoremap g, g,zz
-"append zz to '<char> when jumping to mark triggered
-nnoremap <expr> ' "'" . nr2char(getchar()) . "zz"
+"make matches appear in the middle of screen
+"zz: centralize cursor, zv: unfold
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap g; g;zzzv
+nnoremap g, g,zzzv
+"append zz & zv to '<char> when jumping to mark triggered
+nnoremap <expr> ' "'" . nr2char(getchar()) . "zzzv"
 "search on browser
 nnoremap <silent> [b :call utilfunc#search()<cr>
 "search with git grep
