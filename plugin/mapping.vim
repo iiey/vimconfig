@@ -95,6 +95,10 @@ nnoremap [w :Windows<cr>
 " %:p current filename, %:p:h truncate name -> current dir
 nnoremap [cd :cd %:p:h<cr>:pwd<cr>
 
+"manual change cword forwards
+"repeat with: <c-[>(goto normal) n(ext match) .(repeat)
+nnoremap c* *<c-o>cgn
+
 "SWITCH HEADER:
 "sourcecode-toggle
 nnoremap [v :ToggleCode vsplit<cr>
@@ -108,9 +112,11 @@ vnoremap <c-]> g<c-]>
 nnoremap g<c-]> <c-]>
 vnoremap g<c-]> <c-]>
 
-"manual change cword forwards
-"repeat with: <c-[>(goto normal) n(ext match) .(repeat)
-nnoremap c* *<c-o>cgn
+"add undo stoppoint (ctrl-g_u) at specific symbols
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ; ;<c-g>u
+inoremap : :<c-g>u
 
 "COMMANDLINE MODE:
 "map vertical help
