@@ -138,7 +138,7 @@ let g:ale_set_highlights = 0
 let g:ale_enabled = 0
 let g:ale_completion_enabled = 1
 "do not overwhelm with trivial
-let g:ale_completion_max_suggestions = 20
+let g:ale_completion_max_suggestions = 10
 "do not interrupt, delay or swallow words while typing
 "could manually trigger with c-x_c-o (see maplsp)
 let g:ale_completion_delay = 900

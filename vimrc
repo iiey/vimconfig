@@ -63,11 +63,10 @@ Plug 'SirVer/ultisnips', v:version >= 704 ? { 'tag': '3.2' } : { 'on' : [] }
 "OTHERS (optional) {{{2
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'iiey/vim-startify'
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'preservim/nerdtree', {'on': []}
     Plug 'ryanoasis/vim-devicons'
 Plug 'blueyed/vim-diminactive'
-Plug 'peterhoeg/vim-qml'
 "}}}
 
 "initalize plugin system
