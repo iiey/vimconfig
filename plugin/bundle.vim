@@ -170,7 +170,7 @@ endif
 
 "NERD_TREE {{{
 "ignore files and folder
-let NERDTreeIgnore=['build', '\~$']
+let NERDTreeIgnore=['^build$', '^_build', '^build_','\~$']
 "hide first help line
 let NERDTreeMinimalUI = 1
 "do not deactivate netrw (for opening directory)
